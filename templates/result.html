@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		
+        <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'> 
+        <title> Result</title>
+       <style>
+            @import url(https://fonts.googleapis.com/css?family=Open+Sans);
+            .btn {
+                    display: inline-block;
+                    *display: inline;
+                    *zoom: 1;
+                    padding: 4px 10px 4px;
+                    margin-bottom: 0;
+                    font-size: 13px;
+                    line-height: 18px;
+                    color: #333333;
+                    text-align: center;
+                    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+                    vertical-align: middle;
+                    background-color: #f5f5f5;
+                    background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
+                    background-image: -ms-linear-gradient(top, #ffffff, #e6e6e6);
+                    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
+                    background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
+                    background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
+                    background-image: linear-gradient(top, #ffffff, #e6e6e6);
+                    background-repeat: repeat-x;
+                    filter: progid:dximagetransform.microsoft.gradient(startColorstr=#ffffff, endColorstr=#e6e6e6, GradientType=0);
+                    border-color: #e6e6e6 #e6e6e6 #e6e6e6;
+                    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1)
+                    rgba(0, 0, 0, 0.25); border: 1px solid #e6e6e6;
+                    -webkit-border-radius: 4px;
+                    -moz-border-radius: 4px;
+                    border-radius: 4px;
+                    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+                    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+                    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+                    cursor: pointer; *margin-left: .3em;
+                }
+                .btn:hover, .btn:active, .btn.active, .btn.disabled, .btn[disabled] { background-color: #e6e6e6; }
+                .btn-large { padding: 9px 14px; font-size: 15px; line-height: normal; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; }
+                .btn:hover { color: #333333; text-decoration: none; background-color: #e6e6e6; background-position: 0 -15px; -webkit-transition: background-position 0.1s linear; -moz-transition: background-position 0.1s linear; -ms-transition: background-position 0.1s linear; -o-transition: background-position 0.1s linear; transition: background-position 0.1s linear; }
+                .btn-primary, .btn-primary:hover { text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25); color: #ffffff; }
+                .btn-primary.active { color: rgba(255, 255, 255, 0.75); }
+                .btn-primary { background-color: #4a77d4; background-image: -moz-linear-gradient(top, #6eb6de, #4a77d4); background-image: -ms-linear-gradient(top, #6eb6de, #4a77d4); background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#6eb6de), to(#4a77d4)); background-image: -webkit-linear-gradient(top, #6eb6de, #4a77d4); background-image: -o-linear-gradient(top, #6eb6de, #4a77d4); background-image: linear-gradient(top, #6eb6de, #4a77d4); background-repeat: repeat-x; filter: progid:dximagetransform.microsoft.gradient(startColorstr=#6eb6de, endColorstr=#4a77d4, GradientType=0);  border: 1px solid #3762bc; text-shadow: 1px 1px 1px rgba(0,0,0,0.4); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.5); }
+                .btn-primary:hover, .btn-primary:active, .btn-primary.active, .btn-primary.disabled, .btn-primary[disabled] { filter: none; background-color: #4a77d4; }
+                .btn-block { width: 100%; display:block; }
+body { 
+	width: 99%;
+	height:500px;
+	font-family: 'Open Sans', sans-serif;
+	color: #fff;
+	font-size: 18px;
+	text-align:left;
+	letter-spacing:1.2px;
+    background-image: url("https://s.yimg.com/uu/api/res/1.2/OjUGsxdoM_hXn9nxcUYm.A--~B/aD00NzM7dz04OTA7YXBwaWQ9eXRhY2h5b24-/http://media.zenfs.com/en_US/News/BGR_News/kaspersky-map-2.gif");
+    background-repeat: no-repeat;
+
+    background-size:100% 111%;
+}
+
+.results{
+ margin-top:150px;
+}
+h1{
+    text-align: center;
+    text-transform: uppercase;
+}
+h3{
+    color: rgb(20, 214, 20);
+    text-align: center;
+}
+h2{
+    color: red;
+    text-align:  center;
+}
+h4{
+    text-align: center;
+    color: orange;
+}
+.loader {
+  color:grey;
+  font-family:sans-serif;
+  height:5vh;
+  left:50%;
+  overflow-x:hidden;
+  padding-top:7vh;
+  position:absolute;
+  text-align:center;
+  top:50%;
+  transform:translate(-50%,-50%);
+  width:50vw;
+  &:before {
+    animation:left-to-right 3s alternate infinite linear;
+    background-image:linear-gradient(to right, transparent, red, transparent);
+    // bottom:0;
+    content:"";
+    height:5vh;
+    left:0;
+    overflow:hidden;
+    position:absolute;
+    right:0;
+    top:0;
+  }
+  &:after {
+    background-image:repeating-linear-gradient(
+      90deg,
+      white,
+      white 1vw,
+      transparent 1vw,
+      transparent 10vw
+    );
+    content:"";
+    height:5vh;
+    left:0;
+    overflow:hidden;
+    position:absolute;
+    right:0;
+    top:0;
+  }
+}
+
+@keyframes left-to-right {
+  0% {
+    transform:translateX(-100%);
+  }
+  100% {
+    transform:translateX(100%);
+  }
+}
+</style>
+    </head>
+    <body>
+        <div class="loader">Loading...</div>
+		<!-- Result -->
+		<div class="results">
+			{% if prediction==1 %}
+                <h1>Prediction</h1>  <hr>
+				
+                <h2> <span class='danger'><i class='fa fa-warning' style='font-size:48px;color:red  ;'></i>
+                    Opps! You have Fraud Transaction in Credit Card.</span></h2>
+				<h4>Recommendation: <span class='danger'>Verify Your Bank Soon............</span></h4>
+                <div class="who">
+
+                </div>
+                
+			{% elif prediction==0 %}
+                <h1>Prediction</h1>  <hr> <div>
+
+                </div> <div>
+
+                </div>
+				<h3> <span class='safe'>Hurrah !!! Your Transcation is Secure...No Fraud Detected.</span></h3>
+			{% endif %}
+		</div>
+
+		
+
+	</body>
+</html>

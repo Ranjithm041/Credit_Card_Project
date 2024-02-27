@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<style>
+  #nav {
+  background-color: #000;
+  top: 0;
+  width: 100%;
+}
+#nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+}
+#nav li {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#nav ul li a {
+  color: #ffd600;
+  transition: all 0.4s;
+}
+#nav ul li img {
+  height: 96px;
+  transition: height 0.4s;
+}
+</style>
+<head>
+  <meta charset="UTF-8">
+  <title>Credit Card Fraud Predictor</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+    integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <!-- <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}"> -->
+</head>
+
+<body>
+  <!-- <header id="header"></header> -->
+  <div id="app">
+    <div class="title">
+      <div class="title-inner">
+        <div class="cafe">
+          <div class="cafe-inner">Credit Card </div>
+        </div>
+        <div class="mozart">
+          <div class="mozart-inner">Fraud Detection</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="image">
+      <img src='https://www.bajajfinservmarkets.in/discover/wp-content/uploads/2021/10/Blog-Banners.png' alt=''>
+    </div>
+  </div>
+  <nav id="nav">
+    <ul>
+      <li><a href="#"><i class='fa fa-home' style='color:#eec617'></i>Home</a></li>
+      <!-- <li><a href="#"><i class='fas fa-hands-helping' style='color:#eec617'></i>Assist</a></li> -->
+      <li><a href="{{ url_for('static', filename='support.html') }}"><i class="fa fa-cogs"
+            style='color:#eec617'></i>Support</a></li>
+      <li><a href="{{ url_for('static', filename='faq.html') }}"><i class='fa fa-question-circle'
+            style='color:#eec617'></i>FAQ</a></li>
+    </ul>
+  </nav>
+  <div class="box1">
+    <h1> <i class="fas fa-shield-alt" style='font-size:88px;color:rgb(172, 78, 235)'></i> Your security is our top
+      priority</h1>
+    <p id="para2">We treat your information as we'd treat our own — with privacy and care. We do not make unsolicited
+      phone calls and will never call you to offer services over the phone.</p>
+  </div> <br> <br> <br>
+  <h2>CreditCard Fruads Detecteds : </h2>
+  <p id="para">Unauthorized card operations hit an astonishing amount of 16.7 million victims in 2017. Additionally, as
+    reported by the Federal Trade Commission (FTC), the number of credit card fraud claims in 2017 was 40% higher than
+    the previous year’s number. There were around 13,000 reported cases in California and 8,000 in Florida, which are
+    the largest states per capita for such type of crime. The amount of money at stake will exceed approximately $30
+    billion by 2020. Here are some credit card fraud statistics:</p>
+  <br> <br>
+
+  <img src="https://spd.group/wp-content/uploads/2019/10/Fraud5.jpg" alt="flowchart" id="flowchart">
+  <br> <br>
+  <h2>How Does Credit Card Fraud Happen?</h2>
+  <p id="para">Credit card fraud is usually caused either by card owner’s negligence with his data or by a breach in a
+    website’s security. Here are some examples: </p>
+  <ul class="points">
+    <li>A consumer reveals his credit card number to unfamiliar individuals.</li>
+    <li>A card is lost or stolen and someone else uses it.</li>
+    <li>Mail is stolen from the intended recipient and used by criminals.</li>
+    <li>Business employees copy cards or card numbers of its owner.</li>
+    <li> Making a counterfeit credit card.</li>
+  </ul> <BR>` </BR>
+  <img src="https://spd.group/wp-content/uploads/2019/10/Fraud1.jpg" alt="flowchart2" id="flowchart2"> <br>
+
+  <p id="para"> When your card is lost or stolen, an unauthorized charge can happen; in other words, the person
+    who finds it uses it for a purchase. Criminals can also forge your name and use the card or order
+    some goods through a mobile phone or computer. Also, there is the problem of using a counterfeit
+    credit card – a fake card that has the real account information that was stolen from holders.
+    That is especially dangerous because the victims have their real cards, but do not know that
+    someone has copied their card. Such fraudulent cards look quite legitimate and have the logos
+    and encoded magnetic strips of the original one. Fraudulent credit cards are usually destroyed
+    by the criminals after several successful payments, just before a victim realizes the problem
+    and reports it. </p> <br>
+
+  <hr>
+  <div class="gonext" id="gonxt">
+
+    <button class="button-85" role="button" id="ope" onclick="opengo()" >Let's Go to Predict </button>
+
+  </div>
+  <div class="login" id="predictform" translate="yes" >
+    <h1>Prediction</h1>
+    <form action="{{ url_for('predict')}}"  method="post" autocomplete="on" role="table">
+      <label for="time">Enter the Time eg. 0</label> <br>
+      <input class="form-input" type="text" id="time" name="time" required><br>
+      <label for="bank">Enter the Bank Name eg. 1.SBI</label> <br>
+      <input class="form-input" type="text" id="bank" value="1" name="bankname" required><br>
+      <label for="cardtype">Enter the Card Type eg. 1.Platinum, 2.Gold, 3.Silver</label><br>
+      <input class="form-input" type="text" id="cardtype" maxlength="1" name="cardtype" required><br>
+      <label for="cardno">Enter the Card No eg. XXXX XXXX XXXX XXXX</label> <br>
+      <input class="form-input" type="text" id="cardno" name="cardno" minlength="10" maxlength="19" required><br>
+      <label for="tansid">Transaction No eg. 20</label> <br>
+      <input class="form-input" type="text" id="tansid" name="transid" required><br>
+      <label for="cvvno">Enter the Card CVV No eg. XXX</label> <br>
+      <input class="form-input" type="text" id="cvvno" minlength="3" maxlength="3" name="cvvno" required><br>
+      <label for="month">Enter the Card Expiry Month eg. 01</label> <br>
+      <input class="form-input" type="text" id="month" minlength="1" maxlength="2" name="month" required><br>
+      <label for="year">Enter the Card Expiry Year eg. 22</label> <br>
+      <input class="form-input" type="text" id="year" name="year" minlength="2" maxlength="2" required><br>
+      <label for="amount">Enter the Amount of Transaction eg.234</label> <br>
+      <input class="form-input" type="text" id="amount" name="amount" value="" required><br>
+      <button type="submit" class="btn btn-primary btn-block btn-large"  onclick="sub()">Predict</button>
+    </form>
+    <br>
+    <br>
+    {{ prediction_text }}
+  </div>
+  <footer class="footer-distributed">
+
+    <div class="footer-left">
+
+      <h1><span>CreditCard Fraud Detection</span></h1>
+
+      <p class="footer-links">
+        <a href="#" class="link-1">Home</a>
+
+        <a href="{{ url_for('static', filename='faq.html') }}">Faq</a>
+
+        <a href="{{ url_for('static', filename='support.html') }}">Support</a>
+      </p>
+
+      <p class="footer-company-name">CCFD © 2015</p>
+    </div>
+
+    <div class="footer-center">
+
+      <!-- <div>
+        <i class="fa fa-group" style="font-size:24px"></i>
+        <p> <a href="{{ url_for('static', filename='team.html') }}"  rel="noopener noreferrer">Team</a>
+        </p>
+      </div> -->
+
+      <div>
+        <i class="fa fa-envelope"></i>
+        <p><a href="mailto:ccfd@jan.com">ccfd@jancorp.com</a></p>
+      </div>
+
+    </div>
+
+    <div class="footer-right">
+
+      <p class="footer-company-about">
+        <span>About</span>
+        We treat your information as we'd treat our own — with privacy and care. We do not make unsolicited phone calls
+        and will never call you to offer services over the phone.
+      </p>
+
+      <div class="footer-icons">
+
+        <a href="#"><i class='far fa-address-card' style='font-size:24px'></i></a>
+        <a href="#"><i class="fa fa-bell"></i></a>
+        <a href="#"><i class="fa fa-shield-alt"></i></a>
+        <a href="#"><i class="fa fa-pen"></i></a>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+  <script>
+    function opengo() {
+      document.getElementById("predictform").style.display = "block";
+      document.getElementById("ope").style.display="none";
+      document.getElementById("gonxt").style.display="none";
+    }
+    const nav = document.querySelector('#nav');
+    let navTop = nav.offsetTop;
+
+    function fixedNav() {
+      if (window.scrollY >= navTop) {
+        nav.classList.add('fixed');
+      } else {
+        nav.classList.remove('fixed');
+      }
+    }
+
+    window.addEventListener('scroll', fixedNav);
+   function sub() {
+     let ip3 = document.getElementById("cardtype").value;
+     if (ip3>=3 && ip3<=0) {
+       alert(ip3,"Please enter valid details !"); 
+     }
+     
+   }
+   sub();
+
+  </script>
+</body>
+
+</html>
+
+
+
+
+
+</html>
